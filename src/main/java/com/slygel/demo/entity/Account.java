@@ -1,15 +1,18 @@
 package com.slygel.demo.entity;
 
+import com.slygel.demo.model.AccountModel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.io.Serializable;
 
 @Entity
 @Table
-public class Account implements Serializable {
-
-    private static final long serialVersionUID = 1L;
+@Data
+@AllArgsConstructor
+public class Account {
 
     @Id
     private long accountId;
@@ -18,4 +21,13 @@ public class Account implements Serializable {
     private String password;
     private String role;
 
+    public Account() {
+    }
+
+    public Account(AccountModel accountModel){
+        this.accountId = accountModel.getAccountId();
+        this.username = accountModel.getUsername();
+        this.password = accountModel.getPassword();
+        this.role = accountModel.getRole();
+    }
 }

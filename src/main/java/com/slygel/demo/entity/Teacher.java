@@ -1,5 +1,8 @@
 package com.slygel.demo.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -9,9 +12,10 @@ import java.util.List;
 
 @Entity
 @Table
-public class Teacher implements Serializable {
-
-    private static final long serialVersionUID = 1L;
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Teacher{
 
     @Id
     private Long teacherId;
